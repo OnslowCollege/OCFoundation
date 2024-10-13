@@ -5,14 +5,20 @@ import PackageDescription
 
 let package = Package(
     name: "OCFoundation",
-    dependencies: [
+    products: [
+        // Products define the executables and libraries a package produces, making them visible to other packages.
+        .library(
+            name: "OCFoundation",
+            targets: ["OCFoundation"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "OCFoundation",
-            dependencies: []
-        )
+            name: "OCFoundation"),
+        .testTarget(
+            name: "OCFoundationTests",
+            dependencies: ["OCFoundation"]
+        ),
     ]
 )
